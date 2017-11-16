@@ -25,7 +25,9 @@ SECRET_KEY = 'm20tt@3cw*$d9dli5ooa&btq3c7leo^qn7r&15n3x4+6@28fll'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    u'mauridb.pythonanywhere.com',
+]
 
 
 # Application definition
