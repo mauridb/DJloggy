@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     u'mauridb.pythonanywhere.com',
+    u'localhost',
 ]
 
 
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ticketing',
 ]
 
 MIDDLEWARE = [
