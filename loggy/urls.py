@@ -16,7 +16,18 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from ticketing import views
+
 urlpatterns = [
+    url(r'^$', views.index, name='index'),
+    url(r'^dashboard/', include('ticketing.urls')),
+
+    # APIrest
+    url(r'^api/', include('apirest.urls')),
+
+
     url(r'^admin/', admin.site.urls),
-    url(r'^ticketing/', include('ticketing.urls')),
+
 ]
+
+

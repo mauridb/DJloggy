@@ -1,0 +1,260 @@
+{% extends "base.html" %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/welcomepage.css' %}">
+{% endblock %}
+{% block nav%}
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">DJloggy</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+
+          <!--trigger login modal-->
+          <li><a href="#" data-toggle="modal" data-target="#login">Sign In</a></li>
+              <!--start login modal-->
+              <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="ModalLogin" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <button type="button" class="close"
+                               data-dismiss="modal">
+                                   <span aria-hidden="true">&times;</span>
+                                   <span class="sr-only">Close</span>
+                            </button>
+                            <h4 class="modal-title" id="ModalLogin">
+                                Sign In
+                            </h4>
+                        </div>
+
+                        <!-- Modal Body -->
+                        <div class="modal-body">
+
+                            <form role="form" action="/authC/signIn/" method="post">
+                                {% csrf_token %}
+                              <div class="row">
+                                  <div class="form-group col-md-6">
+                                      <label for="firstName">First name</label>
+                                      <input name="first_name" type="text" class="form-control" id="firstName" placeholder="Type your first name"/>
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                      <label for="lastName">Last name</label>
+                                      <input type="text" name="last_name" class="form-control" id="lastName" placeholder="Type your last name"/>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                  <input name="login_email" type="email" class="form-control"
+                                  id="exampleInputEmail1" placeholder="Enter email"/>
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                  <input name="password" type="password" class="form-control"
+                                      id="exampleInputPassword1" placeholder="Password"/>
+                              </div>
+                              <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"/> Remember me
+                                </label>
+                              </div>
+                              <button type="submit" class="btn btn-success">Sign In</button>
+                            </form>
+
+
+                        </div>
+
+                        <!-- Modal Footer -->
+                        <div class="modal-footer">
+                            <small>"Stay foolish!"</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+    <div class="jumbotron">
+      <h1>You are Welcome!</h1>
+      <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+
+      <!--Button trigger modal-->
+      <p>
+          <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signIn">Sign Up</button>
+          <button id="request_member" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#requestMember">Request Membership</button>
+      </p>
+      <div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                  <button type="button" class="close"
+                     data-dismiss="modal">
+                         <span aria-hidden="true">&times;</span>
+                         <span class="sr-only">Close</span>
+                  </button>
+                  <h3 class="modal-title" id="myModalLabel">
+                      Registration
+                  </h3>
+              </div>
+
+              <!-- Modal Body -->
+              <div class="modal-body">
+
+                  <form role="form" action="authC/signUp/" method="post">
+                      {% csrf_token %}
+                    <div class="form-group">
+                      <label for="Inputfirstname">First name</label>
+                        <input name="first_name" type="text" class="form-control"
+                        id="Inputfirstname" placeholder="Type your first name" required/>
+                    </div>
+                    <div class="form-group">
+                      <label for="Inputlastname">Last name</label>
+                        <input name="last_name" type="text" class="form-control"
+                        id="Inputlastname" placeholder="Type your last name" required/>
+                    </div>
+                    <div class="form-group">
+                      <label for="InputEmail1">Email address</label>
+                        <input name="sign_email" type="email" class="form-control"
+                        id="InputEmail1" placeholder="Type your email address" required/>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="InputPassword1">Password</label>
+                        <input name="password" type="password" class="form-control"
+                            id="InputPassword1" placeholder="Type your password" required/>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="InputPassword2">Confirm</label>
+                        <input name="confirm_password" type="password" class="form-control"
+                            id="InputPassword2" placeholder="Confirm your password" required/>
+                    </div>
+                    <!--<div class="checkbox">-->
+                      <!--<label>-->
+                          <!--<input type="checkbox"/> Check me out-->
+                      <!--</label>-->
+                    <!--</div>-->
+                    <button type="submit" class="btn btn-success">Sign Up</button>
+                  </form>
+
+
+              </div>
+
+              <!-- Modal Footer -->
+              <div class="modal-footer">
+                  <small>
+                      "Enjoy, you are welcome!"
+                  </small>
+              </div>
+          </div>
+      </div>
+  </div>
+        <div class="modal fade" id="requestMember" tabindex="-1" role="dialog" aria-labelledby="reqMemb" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                  <button type="button" class="close"
+                     data-dismiss="modal">
+                         <span aria-hidden="true">&times;</span>
+                         <span class="sr-only">Close</span>
+                  </button>
+                  <h3 class="modal-title" id="reqMemb">
+                      Request Membership
+                  </h3>
+              </div>
+
+              <!-- Modal Body -->
+              <div class="modal-body">
+                  <form role="form" action="" method="post">
+                      {% csrf_token %}
+                    <div class="form-group">
+                      <label for="requestMemb">Email address</label>
+                        <input name="memb_email" type="email" class="form-control"
+                        id="requestMemb" placeholder="Type your email address" required/>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Request Membership</button>
+                  </form>
+              </div>
+
+              <!-- Modal Footer -->
+              <div class="modal-footer">
+                  <small>
+                      "Enjoy, you are welcome!"
+                  </small>
+              </div>
+          </div>
+      </div>
+  </div>
+    </div>
+
+{% endblock%}
+
+
+
+
+{% block footer%}
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-4 col-md-offset-4" style="margin-top:10px;">
+              "Enjoy, lovely developed by mauridb!! ^_^"
+          </div>
+      </div>
+  </div>
+</nav>
+
+
+{% endblock %}
+
+
+{% block javascript %}
+<script src="{% static 'js/change-color.js' %}"></script>
+{% endblock %}

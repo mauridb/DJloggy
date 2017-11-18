@@ -129,30 +129,30 @@ STATICFILES_DIRS = [
 
 # Custom options fields
 PROJECT_STATUS = (
-    ('0', 'Started'),
-    ('1', 'In Progress'),
-    ('2', 'Closed'),
+    ('Started', 'Started'),
+    ('In Progress', 'In Progress'),
+    ('Closed', 'Closed'),
 )
 
 TICKET_PRIORITY = (
-    ('0', 'High'),
-    ('1', 'Normal'),
-    ('2', 'Low'),
+    ('High', 'High'),
+    ('Normal', 'Normal'),
+    ('Low', 'Low'),
 )
 
 TICKET_STATUS = (
-    ('0', 'Tested'),
-    ('1', 'Completed'),
-    ('2', 'In Progress'),
-    ('3', 'Created'),
-    ('4', 'Cancelled'),
+    ('Tested', 'Tested'),
+    ('Completed', 'Completed'),
+    ('In Progres', 'In Progress'),
+    ('Created', 'Created'),
+    ('Cancelled', 'Cancelled'),
 )
 
 TICKET_DIFFICULTY = (
-    ('0', 'very hard'),
-    ('1', 'hard'),
-    ('2', 'standard'),
-    ('3', 'simple'),
-    ('4', 'very simple'),
+    ('very hard', 'very hard'),
+    ('hard', 'hard'),
+    ('standard', 'standard'),
+    ('simple', 'simple'),
+    ('very simple', 'very simple'),
 )
 
