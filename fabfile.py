@@ -50,7 +50,7 @@ def migrate():
     local('python manage.py migrate')
 
 
-def test_deploy():
+def deploy():
     install()
     migrate()
     local('python manage.py createsuperuser')
