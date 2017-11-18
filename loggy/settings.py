@@ -12,6 +12,35 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+# Custom options fields
+PROJECT_STATUS = (
+    ('Started', 'Started'),
+    ('In Progress', 'In Progress'),
+    ('Closed', 'Closed'),
+)
+
+TICKET_PRIORITY = (
+    ('High', 'High'),
+    ('Normal', 'Normal'),
+    ('Low', 'Low'),
+)
+
+TICKET_STATUS = (
+    ('Tested', 'Tested'),
+    ('Completed', 'Completed'),
+    ('In Progres', 'In Progress'),
+    ('Created', 'Created'),
+    ('Cancelled', 'Cancelled'),
+)
+
+TICKET_DIFFICULTY = (
+    ('very hard', 'very hard'),
+    ('hard', 'hard'),
+    ('standard', 'standard'),
+    ('simple', 'simple'),
+    ('very simple', 'very simple'),
+)
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -111,7 +140,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'CET'
 
 USE_I18N = True
 
@@ -129,32 +158,21 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-# Custom options fields
-PROJECT_STATUS = (
-    ('Started', 'Started'),
-    ('In Progress', 'In Progress'),
-    ('Closed', 'Closed'),
-)
+# DJANGO REST FRAMEWORK settings
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10,
+    'COERCE_DECIMAL_TO_STRING': False,
+}
 
-TICKET_PRIORITY = (
-    ('High', 'High'),
-    ('Normal', 'Normal'),
-    ('Low', 'Low'),
-)
 
-TICKET_STATUS = (
-    ('Tested', 'Tested'),
-    ('Completed', 'Completed'),
-    ('In Progres', 'In Progress'),
-    ('Created', 'Created'),
-    ('Cancelled', 'Cancelled'),
-)
-
-TICKET_DIFFICULTY = (
-    ('very hard', 'very hard'),
-    ('hard', 'hard'),
-    ('standard', 'standard'),
-    ('simple', 'simple'),
-    ('very simple', 'very simple'),
-)
-
+DATETIME_INPUT_FORMATS = [
+    '%Y-%m-%d %H:%M:%S', # '2006-10-25 14:30:59'
+]
