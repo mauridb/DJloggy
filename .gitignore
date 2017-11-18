@@ -5,3 +5,4 @@ db.sqlite3
 /static
 *.swp
 platform.log
+.idea/workspace.xml
