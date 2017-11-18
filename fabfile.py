@@ -50,6 +50,7 @@ def migrate():
     local('python manage.py migrate')
 
 
+# command to easy deploy
 def deploy():
     install()
     migrate()
