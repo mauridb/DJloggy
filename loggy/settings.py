@@ -126,3 +126,33 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+# Custom options fields
+PROJECT_STATUS = (
+    ('0', 'Started'),
+    ('1', 'In Progress'),
+    ('2', 'Closed'),
+)
+
+TICKET_PRIORITY = (
+    ('0', 'High'),
+    ('1', 'Normal'),
+    ('2', 'Low'),
+)
+
+TICKET_STATUS = (
+    ('0', 'Tested'),
+    ('1', 'Completed'),
+    ('2', 'In Progress'),
+    ('3', 'Created'),
+    ('4', 'Cancelled'),
+)
+
+TICKET_DIFFICULTY = (
+    ('0', 'very hard'),
+    ('1', 'hard'),
+    ('2', 'standard'),
+    ('3', 'simple'),
+    ('4', 'very simple'),
+)
+

@@ -36,3 +36,21 @@ def prepare_master():
 # fab start_app:'APPLICATION-NAME'
 def start_app(message):
     local('python manage.py startapp {}'.format(message))
+
+
+# features [test_deploy, deploy, migrate, install]
+
+# PRODUCTION
+def install():
+    local('pip install -r requirements.txt')
+
+
+def migrate():
+    local('python manage.py makemigrations')
+    local('python manage.py migrate')
+
+
+def test_deploy():
+    install()
+    migrate()
+    local('python manage.py createsuperuser')
