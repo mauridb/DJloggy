@@ -5,4 +5,9 @@ db.sqlite3
 /static
 *.swp
 platform.log
+<<<<<<< HEAD
 .idea/workspace.xml
+=======
+.idea/
+
+>>>>>>> dev
