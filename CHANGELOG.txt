@@ -1,0 +1,41 @@
+DJloggy: release 18/11/2017-18:00
+	# ridefinizione del modello dati
+	# integrare campi
+	# integrare relazioni
+	# fabfile update
+
+DJloggy: release 18/11/2017-21:30
+	# index sarebbe la pagina di benvenuto
+	# raw dashboard
+	# ridefinizione sistema di rotte per la navigazione
+	# operazioni CRUD per i ticket
+
+DJloggy: release 18/11/2017-23:00
+	# APIrest
+		#GET     @/api/v1/users					--> list di tutti gli utenti della piattaforma
+		#POST    @/api/v1/users/add				--> crea un nuovo utente
+		#GET     @/api/v1/users/<id_user>			--> dettaglio singolo utente	
+		#UDPATE  @/api/v1/users/<id_user>/update			--> modifica del singolo utente	
+		#DELETE  @/api/v1/users/<id_user>/delete			--> elimina il singolo utente	
+
+
+		#GET     @/api/v1/projects				--> list di tutti i progett della piattaforma
+		#POST    @/api/v1/projects/add				--> crea un nuovo progetto
+		#GET     @/api/v1/projects/<id_progetto>			--> dettaglio singolo progetto
+		#UDPATE  @/api/v1/projects/<id_progetto>/update		--> modifica del singolo progetto	
+		#DELETE  @/api/v1/projects/<id_user>/delete		--> elimina il singolo progetto	
+
+
+		#GET     @/api/v1/tickets				--> list di tutti i ticket della piattaforma
+		#POST    @/api/v1/tickets/add				--> crea un nuovo ticket
+		#GET     @/api/v1/tickets/<id_ticket>			--> dettaglio singolo ticket
+		#UDPATE  @/api/v1/tickets/<id_ticket>/update		--> modifica del singolo ticket	
+		#DELETE  @/api/v1/tickets/<id_user>/delete		--> elimina il singolo ticket	
+
+
+DJloggy: release 18/11/2017-23:30
+	# permessi, autenticazioni, paginazione
+
+
+
+
