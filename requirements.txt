@@ -1,3 +1,6 @@
 django
 whitenoise
 fabric
+djangorestframework
+markdown
+django-filter
